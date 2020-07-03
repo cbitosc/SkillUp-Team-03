@@ -1,0 +1,79 @@
+<resources>
+    <string name="app_name">CBIT-QPMgmt</string>
+    <string name="notification_activity">NotificationView</string>
+    <string-array name="Branch">
+        <item>CHEMICAL</item>
+        <item>MECH</item>
+        <item>ECE</item>
+        <item>EEE</item>
+        <item>BIOTECH</item>
+        <item>CIVIL</item>
+        <item>IT</item>
+        <item>PROD</item>
+        <item>CSE</item>
+    </string-array>
+
+
+    <string-array name="Semester">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+
+    </string-array>
+    <string name="title_activity_main_page">MainPage</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+    <string-array name="branch">
+        <item>CSE</item>
+        <item>IT</item>
+        <item>ECE</item>
+        <item>EEE</item>
+        <item>MECH</item>
+        <item>CIVIL</item>
+        <item>CHEMICAL</item>
+        <item>BIOTECH</item>
+        <item>PROD</item>
+    </string-array>
+    <string-array name="semester">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+    </string-array>
+    <string-array name="examtype">
+        <item>Internal</item>
+        <item>External</item>
+    </string-array>
+    <string-array name="subtype">
+        <item>MID1</item>
+        <item>MID2</item>
+        <item>Main</item>
+        <item>Backlog</item>
+    </string-array>
+    <string-array name="year">
+        <item>2016</item>
+        <item>2017</item>
+        <item>2018</item>
+        <item>2019</item>
+    </string-array>
+    <string name="title_activity_main4">MainActivity4</string>
+
+</resources>
