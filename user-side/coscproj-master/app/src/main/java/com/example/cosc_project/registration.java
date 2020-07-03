@@ -1,5 +1,6 @@
 package com.example.cosc_project;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -35,6 +36,7 @@ public class registration extends AppCompatActivity {
     private RequestQueue queue;
     JsonObjectRequest objectRequest;
     JSONObject data;
+    ProgressDialog loading;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,6 +121,7 @@ public class registration extends AppCompatActivity {
 
     public void userRegister(String username,String password,String rollno,String branch,String sem_no) {
         String URL = "https://cbit-qp-api.herokuapp.com/user-register";
+        loading = ProgressDialog.show(this, "Please wait...", "Sending details...", false, false);
         data = new JSONObject();
         try {
             data.put("uname", username);
@@ -137,6 +140,7 @@ public class registration extends AppCompatActivity {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
+                        loading.dismiss();
                         try {
                             Toast toast = Toast.makeText(getApplicationContext(), response.getString("message"), Toast.LENGTH_LONG);
                             toast.show();
@@ -150,6 +154,7 @@ public class registration extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        loading.dismiss();
                         Toast toast = Toast.makeText(getApplicationContext(), "Invalid credentials... Please try agian!", Toast.LENGTH_LONG);
                         toast.show();
                     }

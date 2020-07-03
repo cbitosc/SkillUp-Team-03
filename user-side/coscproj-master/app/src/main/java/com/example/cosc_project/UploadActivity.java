@@ -161,8 +161,13 @@ public class UploadActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         loading.dismiss();
-                        Toast toast = Toast.makeText(getApplicationContext(), "Upload Successfull!!", Toast.LENGTH_LONG);
-                        toast.show();
+                        if(Uploadflag==1) {
+                            Toast toast = Toast.makeText(getApplicationContext(), "Upload Successfull!!", Toast.LENGTH_LONG);
+                            toast.show();
+                        }else{
+                            Toast toast = Toast.makeText(getApplicationContext(), "Edit Successfull!!", Toast.LENGTH_LONG);
+                            toast.show();
+                        }
                         imageView.setImageBitmap(bitmap);
                         getUploadStatus();
 

@@ -126,6 +126,7 @@ public class login extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        loading.dismiss();
                         Toast toast = Toast.makeText(getApplicationContext(), "Login Failed...Invalid credentials", Toast.LENGTH_LONG);
                         toast.show();
                     }
