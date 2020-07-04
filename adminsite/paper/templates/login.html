@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
+  	<body style="background-image:url('{% static "images/cbitimg.jpg" %}')" no-repeat center fixed;background-size: cover;></body>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #17a2b8;
+      height: 100vh;
+      background-repeat: no-repeat;
+      background-size:cover;
+    }
+    div{
+      opacity: 0.94;
+    }
+    #login .container #login-row #login-column #login-box {
+      margin-top: 120px;
+      max-width: 600px;
+      height: 340px;
+      border: 1px solid #9C9C9C;
+      background-color: #EAEAEA;
+      background-blend-mode: lighten;
+
+    }
+    #login .container #login-row #login-column #login-box #login-form {
+      padding: 20px;
+    }
+    #login .container #login-row #login-column #login-box #login-form #register-link {
+      margin-top: -85px;
+    }
+  </style>
+  	<title>Login Page</title>
+  </head>
+
+  <body>
+    <div id="login">
+        <div class="text-center">
+          {% if message %}<h3 style="color:#ED736D; padding-top:5%"><strong>{{message}}</strong></h3>{% endif %}
+        </div>
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" action="{% url 'paper:home' %}" method="post">
+                          {% csrf_token %}
+                            <h3 class="text-center text-info">ADMIN LOGIN</h3><br>
+                            <div class="form-group">
+                                <label for="uname" class="text-info label">Username:</label><br>
+                                <input type="text" name="uname" id="uname" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-info label">Password:</label><br>
+                                <input type="password" name="password" id="password" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
+                                <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </body>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.js" ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.7/js/tether.min.js" ></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+</html>

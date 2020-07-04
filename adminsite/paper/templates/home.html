@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
+  <body style="background-image:url('{% static "images/bookimg.jpg" %}')" no-repeat center fixed;background-size: cover;>
+
+  <style>
+    .btn btn-outline-secondary{
+        color: #111 ;
+      }
+    body{
+        color: white;
+
+
+         background-repeat: no-repeat;
+         background-size:cover;
+      }
+    form{
+      text-align:center;
+      }
+    input[type=submit] {
+      padding:15px 20px;
+      width: 40%;
+      border: 2px solid white;
+      font-size:20px;
+      cursor:pointer;
+      border-radius: 25px;
+      }
+    .btn btn-outline-secondary-text {
+        color:bisque;
+      }
+  </style>
+
+  <title> User Upload Page</title>
+</head>
+
+<body>
+  <br><br>
+  <form class="form" action="{% url 'paper:adminpaperpage' %}">
+    {% csrf_token %}
+    <input type="submit" name="uploadpaper" class="btn btn-info btn-md" value="UploadPaper">
+  </form>
+<br><br>
+  <form class="form" action="{% url 'paper:admintimetablepage' %}">
+    {% csrf_token %}
+    <input type="submit" name="uploadtimetable" class="btn btn-info btn-md" value="UploadTimeTable">
+  </form>
+  <br><br>
+  <form class="form" action="{% url 'paper:edittimetablepage' %}">
+    {% csrf_token %}
+    <input type="submit" name="edittimetable" class="btn btn-info btn-md" value="EditTimeTable">
+  </form>
+  <br><br>
+  <form class="form" action="{% url 'paper:check_user_upload' %}">
+    {% csrf_token %}
+    <input type="submit" name="Check User Uploads" class="btn btn-info btn-md" value="CheckUserUploads">
+  </form>
+  <br><br>
+</body>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.js" ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.7/js/tether.min.js" ></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+</html>
