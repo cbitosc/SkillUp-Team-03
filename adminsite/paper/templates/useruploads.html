@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
+    <body style="background-image:url('{% static "images/bookpile2.jpg" %}')" no-repeat center fixed;background-size: cover;>
+  <style>
+    body{
+      color: #E7FAFA;
+      background-repeat: no-repeat;
+      background-size:cover;
+    }
+    form{
+       text-align:center
+    }
+    select {
+        width: 100px;
+        margin: 20px;
+        text-align: center;
+        float:center;
+    }
+
+    input {
+    width: 10%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    }
+
+    div.white{
+    color:white;
+    max-width: 600px;
+    height: 20px;
+    margin: auto;
+
+    }
+
+    div.grey{
+                background-color opacity:0.8;
+                background-color:beige;
+                margin: auto;
+                 width:1070px;
+                 color:black;
+                 opacity: 0.8;
+                 border: 2px solid #9C9C9C;
+       }
+       div.container{
+
+        background-color:beige;
+        opacity: 0.8;
+        width:1070px;
+        color:black;
+        border: 2px solid #9C9C9C;
+       }
+       }
+
+
+  </style>
+  <title> User Upload Page</title>
+</head>
+<body>
+  <br>
+
+ <div class="white"> <h2 class="text-center">AVAILABLE REQUEST NUMBERS </h2></div>
+  <br>
+  <br>
+
+ <div class ="grey">
+  <form action="{% url 'paper:getrequestnoinfo' %}" method="post">
+    {% csrf_token %}
+   <b> User Reqnos:</b><br>
+
+    <select name="request_no" id="requestno">
+
+    {% for element in msg %}
+
+    <option value="{{element.request_no}}" >"{{element.request_no}}"</option>
+    {% endfor %}
+
+    </select>
+    <br>
+
+    <input type="submit" name="submit" class="btn btn-success">
+  </form>
+</div>
+
+
+<br><br><br>
+
+{% block content %}
+
+{% endblock content %}
+
+
+</body>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.js" ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.7/js/tether.min.js" ></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+</html>

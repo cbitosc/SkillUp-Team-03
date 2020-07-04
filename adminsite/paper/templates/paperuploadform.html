@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
+
+  <style>
+
+    body{
+      background-repeat: no-repeat;
+      background-size:cover;
+      color: #E7FAFA;
+    }
+
+    div {
+
+    padding: 25px 50px 75px;
+
+    }
+    div.dark{
+
+       background-color: black;
+       height:10px ;
+        opacity: 0.5;
+        width:390px;
+        text-align: center;
+        border: 2px solid #9C9C9C;
+       }
+
+    div.light{
+
+     background-color: black;
+     height:450px ;
+      opacity: 0.5;
+      width:390px;
+      align:left;
+      border: 2px solid #9C9C9C;
+       }
+
+
+    select {
+        width: 100px;
+        margin: 10px;
+    }
+    .year{
+      width: 100px;
+    }
+ </style>
+
+</head>
+
+<body style="background-image:url('{% static "images/bookpile.jpg" %}')" no-repeat center fixed;background-size: cover;>
+  <div class="container text-center">
+  {% if msg %}<h4 class="text-center">{{msg.message}}</h4>{% endif %}
+  <div align ="center">
+ <div class="dark"> <h1 style="color:white">UPLOAD PAPER</h1></div>
+ <div align ="center">
+ <div class="light" >
+ <form method="post" enctype="multipart/form-data" action="{% url 'paper:uploadpaper' %}">
+      {% csrf_token %}
+      &ensp;   &ensp; &ensp;&ensp;sem_no:
+     <select name="sem_no" id="sem_no">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+     </select>
+    <br>
+    branch_name:
+    &ensp;<select name="b_id" id="branch_name">
+      <option value="4">CSE</option>
+      <option value="5">IT</option>
+      <option value="2">MECH</option>
+      <option value="3">PROD</option>
+      <option value="8">CHEMICAL</option>
+      <option value="9">BIOTECH</option>
+      <option value="6">ECE</option>
+      <option value="7">EEE</option>
+      <option value="1">CIVIL</option>
+  </select>
+   <br>
+    subject_name:
+    <select name="s_code" id="s_code">
+     {% for s in subject %}
+      <option value="{{s.s_code}}">{{s.subject_name}}</option>
+     {% endfor %}
+     </select>
+   <br>
+
+   &ensp; &ensp;exam_type:
+   <select name="exam_type" id="exam_type">
+    <option value="Internal">Internal</option>
+    <option value="External">External</option>
+  </select>
+    <br>
+  </select>
+
+&nbsp;&ensp;&ensp; &ensp; sub_type:
+   <select name="subtype" id="subtype">
+    <option value="MID 1">Mid-1</option>
+    <option value="MID 2">Mid-2</option>
+    <option value="Main">Main</option>
+    <option value="Backlog">Backlog</option>
+   </select>
+  <br>
+
+  &ensp;&ensp; &ensp;&ensp; &ensp; Year:&ensp; &ensp;
+  <input type="number" name="year" class="year" placeholder="Ex:2020" required>
+  <br><br>
+  <input type="file" name="image">
+  <br><br>
+  <input type="submit" value="Upload" class="btn btn-success">&ensp;upload file</button>
+</form>
+</div>
+  <br>
+  </div>
+</body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.js" ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.7/js/tether.min.js" ></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+</html>
